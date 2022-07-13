@@ -13,13 +13,19 @@ function addListItem(text) {
     container.appendChild(newElement);
 }
 
-// Listen to the button and wait for click
-document.getElementById("first-button").addEventListener("click", (e) => {
-    
-    // Get the textbox's value
-    const text = document.querySelector("#input-box").value;
 
-    // Call the addListItem function with the value
-    addListItem(text);
+function handleFormSubmit (e) {
 
-})
+    // Stop the page refreshing
+    e.preventDefault();
+
+    // Get reference to the form
+    const form = e.target;
+
+    // Add the name to the page
+    // console.log(form.name.value)
+    addListItem(form.name.value)
+
+}
+
+document.getElementById("identity-form").addEventListener("submit", handleFormSubmit)
